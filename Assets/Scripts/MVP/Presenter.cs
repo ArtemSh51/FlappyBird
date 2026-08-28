@@ -1,21 +1,22 @@
-using System;
-
-public class Presenter : IDisposable
+public class Presenter
 {
-    private Model _model;
+    private Score _score;
     private IViewer _viewer;
 
-    public Presenter(Model model, Viewer viewer)
+    public Presenter(Score score, Viewer viewer)
     {
-        _model = model;
+        _score = score;
         _viewer = viewer;
-
-        _model.ScoreChanged += ChangeTextScore;
     }
 
-    public void Dispose()
+    public void Enable()
     {
-        _model.ScoreChanged -= ChangeTextScore;
+        _score.Changed += ChangeTextScore;
+    }
+
+    public void Disable()
+    {
+        _score.Changed -= ChangeTextScore;
     }
 
     private void ChangeTextScore(int score)

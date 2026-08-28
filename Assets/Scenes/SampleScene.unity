@@ -428,7 +428,7 @@ MonoBehaviour:
   _mover: {fileID: 480869902}
   _reader: {fileID: 480869900}
   _animator: {fileID: 480869901}
-  _gun: {fileID: 1558942505}
+  _gun: {fileID: 1558942503}
 --- !u!61 &480869898
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -6,20 +6,9 @@ public class PlayerSpawner : MonoBehaviour
     [SerializeField] private Player _player;
     [SerializeField] private PlayButton _button;
 
-    public event Action PlayerKilled;
-
-    private void OnEnable()
+    public event Action PlayerKilled
     {
-        _player.Killed += Respawn;
-    }
-
-    private void OnDisable()
-    {
-        _player.Killed -= Respawn;
-    }
-
-    public void Respawn()
-    {
-        PlayerKilled?.Invoke();
+        add => _player.Killed += value;
+        remove => _player.Killed -= value;
     }
 }

@@ -6,7 +6,7 @@ public class Player : MonoBehaviour, IKillable
     [SerializeField] private PlayerMover _mover;
     [SerializeField] private InputReader _reader;
     [SerializeField] private PlayerAnimator _animator;
-    [SerializeField] private MonoBehaviour _gun;
+    [SerializeField] private GameObject _gun;
 
     private IPlayerShootable _shootable;
 
@@ -14,10 +14,7 @@ public class Player : MonoBehaviour, IKillable
 
     private void Awake()
     {
-        if (_gun is IPlayerShootable gun)
-        {
-            _shootable = gun;
-        }
+        _shootable = _gun.GetComponent<IPlayerShootable>();
     }
 
     private void OnEnable()
