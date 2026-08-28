@@ -1,0 +1,4 @@
+interface IPlayerShootable
+{
+    void Shoot();
+}
